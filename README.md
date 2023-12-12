@@ -22,10 +22,17 @@ scores [1.2] es incorrecto, scores [25] es incorrecto y scores[-1] es incorrecto
 
 ### Ejercicio 4
 array[0] = 71
+
 array[1] = 1
+
 array[2] = 2
+
 array[3] = 3
+
 array[4] = 71
+
 array[5] = 23
+
 array[6] = 42
+### Ejercicio 5
 
