@@ -35,4 +35,31 @@ array[5] = 23
 
 array[6] = 42
 ### Ejercicio 5
+array[0] = 0,21
+
+array[1] = 4,31
+
+array[2] = 9,28
+
+array[3] = 3
+
+Imprime : posición 3 valor 3 ; posicion 2 valor 9,28 ; posicion 1 valor 4,31
+### Ejercicio 6
+array[0] = 5,1
+
+array[1] = 10,0
+
+array[2] = 51,5
+
+array[3] = 61,5
+
+Imprime : array[3] == 61,5
+### Ejercicio 7
+char[] dam = {d,a,m};
+
+a: 3
+
+b: a
+
+c: No tiene valor porque solo llega hasta indice 2
 
