@@ -3,18 +3,28 @@
 ## Tarea 1
 ### Ejercicio 1
 a: 10
+
 b: int
+
 c: 103
+
 d: System.out.println(array[3])
+
 e: int[] array = new int[elementos]
+
 f: array[9] = 2;
+
 g: 38+14
+
 h: muestra 9 y luego almacena 10 en el array en la posicion 6
+
 i: Daría error porque no hay una posición 14 en el array
 
 ### Ejercicio 2
 a: La longitud es 3
+
 b: EL indice mayor es la longitud -1 es decir 2
+
 c: Da error porque pasa los límites del array
 
 ### Ejercicio 3
@@ -63,3 +73,14 @@ b: a
 
 c: No tiene valor porque solo llega hasta indice 2
 
+### Ejercicio 8
+char[] dam = new char[3];
+
+dam[0] = d;
+
+dam[1] = a;
+
+dam[2] = m;
+
+### Ejercicio 9
+dataB : 45, 23, 2, 45, 4, 12
