@@ -1,3 +1,5 @@
+package Tarea5Arrays;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -44,12 +46,14 @@ public class Evaluacion {
 
             }
 
-            System.out.print("Notas: ");
-            for (int i = 0; i < totalAlumnos; i++) {
-                System.out.print(this.listaNotas[i] + " ");
-            }
+
 
         }
+        System.out.print("Notas: ");
+        for (int i = 0; i < this.listaNotas.length; i++) {
+            System.out.print(this.listaNotas[i] + " ");
+        }
+        System.out.println("");
     }
 
     //Sobrecargamos el to string
@@ -58,8 +62,7 @@ public class Evaluacion {
         String nombreAsignatura = "Asignatura: " + this.nombreAsignatura + "\n";
         if(this.listaNotas != null){
             for(int i = 0 ; i < this.listaNotas.length ; i++){
-                System.out.println(this.nombreAsignatura);
-            s =  "Alumno " + (i+1) + ": " + this.listaNotas[i] + "\n";
+            s =  s + "Alumno " + (i+1) + ": " + this.listaNotas[i] + "\n";
 
 
             }
@@ -162,6 +165,7 @@ public class Evaluacion {
         double maximo = 0;
         for(int i = 0 ; i < this.listaNotas.length ; i++){
             if(this.listaNotas[i] > maximo){
+                maximo = this.listaNotas[i];
                 indiceMaximo = i;
             }
         }
@@ -172,6 +176,7 @@ public class Evaluacion {
         double minimo = 11;
         for(int i = 0 ; i < this.listaNotas.length ; i++){
             if(this.listaNotas[i] < minimo){
+                minimo = this.listaNotas[i];
                 indiceMinimo = i;
             }
         }
