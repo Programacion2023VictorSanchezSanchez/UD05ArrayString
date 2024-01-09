@@ -17,7 +17,7 @@ public class Principal {
         //Salimos cuando el usuario pulsa la opcion "2-Salir"
         while (opc != 2){
             switch(opc) {
-                case 1: //Probar temperatura
+                case 1: //
 
                     break;
 
@@ -54,5 +54,8 @@ public class Principal {
 
         } while (opc < 1 || opc > 5);
         return opc;
+    }
+
+    private void testEvaluacion(){
     }
 }
