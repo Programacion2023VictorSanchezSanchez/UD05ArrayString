@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Clase para calcular las notas de cada asignatura para la evaluación
  * Autor: Víctor Sánchez
  */
-public class Evaluacion {
+public class Asignatura {
 
     Scanner sc = new Scanner(System.in);
 
@@ -16,11 +16,11 @@ public class Evaluacion {
     private double [] listaNotas;
 
     //Constructores
-    public Evaluacion(String nombreAsignatura){
+    public Asignatura(String nombreAsignatura){
 
         this.nombreAsignatura = nombreAsignatura;
     }
-    public Evaluacion(String nombreAsignatura, double [] listaNotas){
+    public Asignatura(String nombreAsignatura, double [] listaNotas){
         this.nombreAsignatura = nombreAsignatura;
 
         this.listaNotas = listaNotas;

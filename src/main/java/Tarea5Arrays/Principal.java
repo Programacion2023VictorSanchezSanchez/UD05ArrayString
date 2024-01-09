@@ -1,6 +1,5 @@
 package Tarea5Arrays;
 
-import java.sql.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -68,7 +67,7 @@ public class Principal {
         double[] miArray = new double[] {3.5, 5.2, 7, 9, 1, 6.6, 3, 5, 7.2};
 
         //Creamos objeto
-        Evaluacion matematicas = new Evaluacion("matematicas", miArray);
+        Asignatura matematicas = new Asignatura("matematicas", miArray);
 
         //Leemos y mostramos las notas
         matematicas.leerNotas(miArray.length);
