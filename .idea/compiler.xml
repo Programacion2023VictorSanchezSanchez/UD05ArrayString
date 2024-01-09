@@ -9,8 +9,5 @@
         <module name="UD05ArrayString" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="UD05ArrayString" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
