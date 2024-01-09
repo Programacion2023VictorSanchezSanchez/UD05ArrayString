@@ -32,14 +32,41 @@ public class Grupo {
         this.totalAsignaturas = totalAsignaturas;
     }
 
+    //Metodo que introduce alumnos en el array y los ordena
     public void leerALumnos(){
         String alumno;
-        for (int i = 0; i < this.totalAlumnos; i++){
+        for (int i = 0; i < this.alumnos.length; i++){
             System.out.println("Nombre del alumno " + i+1 + " :");
             alumno = sc.next();
             this.alumnos[i] = alumno;
         }
 
         Arrays.sort(this.alumnos);
+    }
+
+    //Metodo que muestra los alumnos
+    public void mostrarAlumnos(){
+        for (int i = 0; i < this.alumnos.length; i++) {
+            System.out.println(this.alumnos[i]);
+        }
+    }
+
+    //Metodo para leer las asignaturas e introducir las notas de los alumnos en dicha asignatura
+    public void leerAsignaturas(){
+        String asignatura;
+        for (int i = 0; i < this.asignaturas.length; i++){
+            asignatura = sc.next();
+            this.asignaturas[i] = new Asignatura(asignatura);
+            this.asignaturas[i].leerNotas(this.totalAlumnos);
+        }
+    }
+
+    //Metodo para mostrar solo el nombre de la asignatura
+    public void mostrarAsignaturas(){
+        String asignatura;
+        for (int i = 0; i < this.asignaturas.length; i++){
+            asignatura = this.asignaturas[i].getNombreAsignatura();
+            System.out.println(asignatura);
+        }
     }
 }

@@ -15,6 +15,11 @@ public class Asignatura {
     private String nombreAsignatura;
     private double [] listaNotas;
 
+
+    //Getter nombre asignatura
+    public String getNombreAsignatura(){
+        return this.nombreAsignatura;
+    }
     //Constructores
     public Asignatura(String nombreAsignatura){
 
@@ -48,6 +53,17 @@ public class Asignatura {
 
 
 
+        }
+        if(this.listaNotas == null){
+            for (int i = 0; i < totalAlumnos; i++) {
+                do {
+                    System.out.println("Introduzca una nota entre 0 y 10");
+                    nota = sc.nextDouble();
+                    this.listaNotas[i] = nota;
+
+                } while (nota < 0 && nota > 10);
+
+            }
         }
         System.out.print("Notas: ");
         for (int i = 0; i < this.listaNotas.length; i++) {
