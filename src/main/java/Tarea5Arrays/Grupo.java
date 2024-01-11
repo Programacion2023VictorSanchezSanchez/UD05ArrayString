@@ -43,7 +43,7 @@ public class Grupo {
     public void leerALumnos(){
         String alumno;
         for (int i = 0; i < this.alumnos.length; i++){
-            System.out.println("Nombre del alumno " + i+1 + " :");
+            System.out.println("Nombre del alumno " + (i+1) + " :");
             alumno = sc.next();
             this.alumnos[i] = alumno;
         }
@@ -66,6 +66,7 @@ public class Grupo {
     public void leerAsignaturas(){
         String asignatura;
         for (int i = 0; i < this.asignaturas.length; i++){
+            System.out.println("Introduce el nombre de la asignatura: ");
             asignatura = sc.next();
             this.asignaturas[i] = new Asignatura(asignatura);
             this.asignaturas[i].leerNotas(this.totalAlumnos);
@@ -81,6 +82,25 @@ public class Grupo {
             asignatura = this.asignaturas[i].getNombreAsignatura();
             System.out.println(asignatura);
         }
+    }
+
+    /**
+     * Mostramos la media de las notas de cada asignatura
+     */
+    public void mostrarMedias(){
+        String asignatura;
+        double media;
+        StringBuilder primeraFila = new StringBuilder();
+        StringBuilder segundaFila = new StringBuilder();
+        String s = "";
+        for(int i = 0 ; i < this.asignaturas.length ; i++){
+            asignatura = this.asignaturas[i].getNombreAsignatura();
+            media = this.asignaturas[i].media();
+            primeraFila.append(asignatura);
+            segundaFila.append(media);
+        }
+        s = primeraFila + "\n" + segundaFila;
+        System.out.println(s);
     }
 
 

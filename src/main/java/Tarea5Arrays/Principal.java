@@ -108,5 +108,10 @@ public class Principal {
         //Analizamos el grupo
         matematicas.analizaGrupo();
 
+        //Creamos objeto
+        Grupo dam = new Grupo("dam", 5, 5);
+        dam.leerALumnos();
+        dam.leerAsignaturas();
+        dam.mostrarMedias();
     }
 }
