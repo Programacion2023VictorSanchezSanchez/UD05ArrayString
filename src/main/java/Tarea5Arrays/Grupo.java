@@ -18,7 +18,12 @@ public class Grupo {
     private int totalAlumnos;
     private int totalAsignaturas;
 
-    //Constructor para la clase Grupo
+    /**
+     * Constructor para la clase grupo
+     * @param grupo nombre del grupo
+     * @param totalAlumnos el total de alumnos que habrá en el grupo
+     * @param totalAsignaturas el total de asignaturas que habrá en el grupo de tipo clase Asignatura
+     */
     public Grupo(String grupo, int totalAlumnos, int totalAsignaturas){
 
         this.nombreGrupo = grupo;
@@ -32,7 +37,9 @@ public class Grupo {
         this.totalAsignaturas = totalAsignaturas;
     }
 
-    //Metodo que introduce alumnos en el array y los ordena
+    /**
+     * Rellenamos el array de alumnos y lo ordenamos
+     */
     public void leerALumnos(){
         String alumno;
         for (int i = 0; i < this.alumnos.length; i++){
@@ -44,14 +51,18 @@ public class Grupo {
         Arrays.sort(this.alumnos);
     }
 
-    //Metodo que muestra los alumnos
+    /**
+     * Mostramos el array alumnos
+     */
     public void mostrarAlumnos(){
         for (int i = 0; i < this.alumnos.length; i++) {
             System.out.println(this.alumnos[i]);
         }
     }
 
-    //Metodo para leer las asignaturas e introducir las notas de los alumnos en dicha asignatura
+    /**
+     * Rellenamos el array asignaturas y llamamos a la clase asignatura para rellenar con las notas de esta asignatura
+     */
     public void leerAsignaturas(){
         String asignatura;
         for (int i = 0; i < this.asignaturas.length; i++){
@@ -61,7 +72,9 @@ public class Grupo {
         }
     }
 
-    //Metodo para mostrar solo el nombre de la asignatura
+    /**
+     * Mostramos solo el nombre de la asignatura
+     */
     public void mostrarAsignaturas(){
         String asignatura;
         for (int i = 0; i < this.asignaturas.length; i++){
@@ -69,4 +82,6 @@ public class Grupo {
             System.out.println(asignatura);
         }
     }
+
+
 }

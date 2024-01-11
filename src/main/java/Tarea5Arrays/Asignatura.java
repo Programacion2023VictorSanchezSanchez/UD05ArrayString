@@ -20,18 +20,26 @@ public class Asignatura {
     public String getNombreAsignatura(){
         return this.nombreAsignatura;
     }
+
     //Constructores
+
+    //Constructor con solo el nombre
     public Asignatura(String nombreAsignatura){
 
         this.nombreAsignatura = nombreAsignatura;
     }
+
+    //Constructor con el nombre y el array de lista de notas
     public Asignatura(String nombreAsignatura, double [] listaNotas){
         this.nombreAsignatura = nombreAsignatura;
 
         this.listaNotas = listaNotas;
     }
 
-    //Metodo para leer las notas
+    /**
+     * Comprueba si el array esta vacío o no, si esta vacio rellena el array, si no esta vacío pregunta si quieres rellenarlo de nuevo o dejarlo como esta
+     * @param totalAlumnos el total de alumnos que queremos guardar en el array
+     */
     public void leerNotas(int totalAlumnos) {
         String introducido = "";
         double nota;
@@ -90,7 +98,10 @@ public class Asignatura {
         return s;
     }
 
-    //Metodo para la media del array
+    /**
+     * Comprueba si esta vacío el array y si no lo esta hace la media con las notas de todo el array
+     * @return la media de todas las notas
+     */
     public double media(){
         double media = -1;
         double suma = 0;
@@ -104,7 +115,10 @@ public class Asignatura {
         return media;
     }
 
-    //Metodos para el minimo y el maximo del array
+    /**
+     * Comprobamos cual es la nota más baja de todo el array
+     * @return devolvemos el minimo con la nota más baja de todo el array
+     */
     public double minimo(){
         double minimo = 11;
         if(this.listaNotas != null) {
@@ -120,6 +134,11 @@ public class Asignatura {
 
         return minimo;
     }
+
+    /**
+     * Comprobamos cual es la nota más alta de todo el array
+      * @return devolvemos la nota más alta del array
+     */
     public double maximo(){
         double maximo = 0;
         if(this.listaNotas != null) {
@@ -136,7 +155,10 @@ public class Asignatura {
         return maximo;
     }
 
-    //Metodos para el total de suspensos y aprobados
+    /**
+     * Comprobamos el total de suspensos del array
+     * @return devolvemos el total de los suspendidos del array
+     */
     public int totalSuspensos(){
         int suspensos = 0;
         if(this.listaNotas != null) {
@@ -152,6 +174,11 @@ public class Asignatura {
 
         return suspensos;
     }
+
+    /**
+     * Comprobamos el total de aprobados del array
+     * @return devolvemos el total de los aprobados del array
+     */
     public int totalAprobados(){
         int aprobados = 0;
         if(this.listaNotas != null) {
@@ -168,14 +195,21 @@ public class Asignatura {
         return aprobados;
     }
 
-    //Metodo para cambiar la nota de un alumno
+    /**
+     * Cambiamos la nota de un alumno
+     * @param nota la nueva nota que vamos a darle al alumno
+     * @param alumno el alumno al que le cambiaremos la nota
+     */
     public void cambiarNota(double nota, int alumno){
         if(alumno < this.listaNotas.length-1){
             this.listaNotas[alumno] = nota;
         }
     }
 
-    //Metodos para mostrar el mejor y el peor alumno
+    /**
+     * Comprobamos cual es el alumno con mejor nota
+     * @return devolvemos el alumno con mejor nota
+     */
     public int mejorAlumno(){
         int indiceMaximo = 0;
         double maximo = 0;
@@ -187,6 +221,11 @@ public class Asignatura {
         }
         return indiceMaximo;
     }
+
+    /**
+     * Comprobamos cual es el alumno con peor nota
+     * @return devolvemos el alumno con peor nota
+     */
     public int peorAlumno(){
         int indiceMinimo = 0;
         double minimo = 11;
@@ -199,7 +238,11 @@ public class Asignatura {
         return indiceMinimo;
     }
 
-    //Metodo para mostrar la nota de un alumno
+    /**
+     * Devolvemos la nota de un alumno, si el indice no existe devolvemos -1
+     * @param indice el alumno que queremos devolver la nota
+     * @return devolvemos la nota del indice introducido
+     */
     public double notaAlumno(int indice){
         double nota = 0;
         if(indice < this.listaNotas.length-1){
@@ -212,7 +255,10 @@ public class Asignatura {
     }
 
 
-    //Metodos para mostrar los indices de los aprobados o los suspensos
+    /**
+     * Comprobamos si el alumno esta aprobado y lo almacenamos en un array si lo esta
+     * @return un array con los alumnos aprobados
+     */
     public int [] dameAprobados(){
         int totalAprobados = this.totalAprobados();
         int [] aprobados = new int[totalAprobados];
@@ -226,6 +272,11 @@ public class Asignatura {
 
         return aprobados;
     }
+
+    /**
+     * Comprobamos si el alumno esta suspendido y lo almacenamos en un array si lo esta
+     * @return un array con los alumnos suspendidos
+     */
     public int [] dameSuspensos(){
         int totalSuspensos = this.totalSuspensos();
         int [] suspensos = new int[totalSuspensos];
@@ -240,12 +291,16 @@ public class Asignatura {
         return suspensos;
     }
 
-    //Metodo que nos da la primera nota menor que la dada
-    public double primerMenor(double nota){
-        double primerMenor = 0;
+    /**
+     * Devolvemos la primera nota menor que haya a la nota introducida
+     * @param nota la nota que con la que se comparara las del array
+     * @return la primera nota menor a la nota introducida
+     */
+    public int primerMenor(double nota){
+        int primerMenor = 0;
         for(int i = 0 ; i < this.listaNotas.length ; i++){
-            if(nota < this.listaNotas[i]){
-                primerMenor = this.listaNotas[i];
+            if(nota > this.listaNotas[i]){
+                primerMenor = i;
                 i = this.listaNotas.length;
             }
         }
@@ -253,7 +308,10 @@ public class Asignatura {
     }
 
 
-    //Metodo para ordenar el array
+    /**
+     *  copiamos el array original y lo ordenadomos
+     * @return el array ordenado
+     */
     public double [] ordenarArray(){
         double [] arrayOrdenado = this.listaNotas;
         Arrays.sort(arrayOrdenado);
@@ -262,7 +320,9 @@ public class Asignatura {
     }
 
 
-    //Analizamos el porcentaje del grupo
+    /**
+     * Analiza el grupo para comprobar el porcentaje de la clase segun las notas del array
+     */
     public void analizaGrupo(){
         int indiceAlto = 0;
         int indiceMedio = 0;
