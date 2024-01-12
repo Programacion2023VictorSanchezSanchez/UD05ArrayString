@@ -90,17 +90,71 @@ public class Grupo {
     public void mostrarMedias(){
         String asignatura;
         double media;
-        StringBuilder primeraFila = new StringBuilder();
-        StringBuilder segundaFila = new StringBuilder();
+        StringBuilder resultado = new StringBuilder();
+
         String s = "";
         for(int i = 0 ; i < this.asignaturas.length ; i++){
             asignatura = this.asignaturas[i].getNombreAsignatura();
             media = this.asignaturas[i].media();
-            primeraFila.append(asignatura);
-            segundaFila.append(media);
+            resultado.append(" ").append(asignatura);
+
         }
-        s = primeraFila + "\n" + segundaFila;
         System.out.println(s);
+    }
+
+    /**
+     * Comprobamos la asignatura con la media más baja
+     * @return El nombre de la asignatura con media más baja
+     */
+    public String dameAsignaturaMinima(){
+        String asignatura = "";
+        double media = 11;
+        for(int i = 0 ; i < this.asignaturas.length ; i++){
+            if(this.asignaturas[i].media() < media){
+                asignatura = this.asignaturas[i].getNombreAsignatura();
+                media = this.asignaturas[i].media();
+            }
+
+        }
+        return asignatura;
+
+    }
+
+    /**
+     * Comprobamos la asignatura con la media más alta
+     * @return El nombre de la asignatura con la media más alta
+     */
+    public String dameAsignaturaMaxima(){
+        String asignatura = "";
+        double media = 0;
+        for(int i = 0 ; i < this.asignaturas.length ; i++){
+            if(this.asignaturas[i].media() > media){
+                asignatura = this.asignaturas[i].getNombreAsignatura();
+                media = this.asignaturas[i].media();
+            }
+
+        }
+        return asignatura;
+    }
+
+    /**
+     * Calculamos la media de una asignatura en concreto
+     * @param indice la asignatura que daremos la media
+     * @return La media de la asignatura
+     */
+    public double dameMediaAsignatura(int indice){
+        double media = this.asignaturas[indice].media();
+        return media;
+    }
+
+    public double dameAlumnoMedia(int indice){
+        double media;
+        double sum = 0;
+        for (Asignatura asignatura : this.asignaturas) {
+            sum = sum + asignatura.notaAlumno(indice);
+        }
+        media = sum / this.asignaturas.length;
+        return media;
     }
 
 

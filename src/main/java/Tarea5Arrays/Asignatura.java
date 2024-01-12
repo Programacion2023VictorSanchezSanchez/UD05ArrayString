@@ -21,6 +21,12 @@ public class Asignatura {
         return this.nombreAsignatura;
     }
 
+    //Getter lista notas
+    public double[] getListaNotas() {
+        return this.listaNotas;
+    }
+
+
     //Constructores
 
     //Constructor con solo el nombre
@@ -49,6 +55,7 @@ public class Asignatura {
         }
         if (introducido.equals("s") || introducido.equals("S")) {
 
+            this.listaNotas = new double[totalAlumnos];
             for (int i = 0; i < totalAlumnos; i++) {
                 do {
                     System.out.println("Introduzca una nota entre 0 y 10");
@@ -63,6 +70,9 @@ public class Asignatura {
 
         }
         if(this.listaNotas == null){
+
+            this.listaNotas = new double[totalAlumnos];
+
             for (int i = 0; i < totalAlumnos; i++) {
                 do {
                     System.out.println("Introduzca una nota entre 0 y 10");
@@ -245,7 +255,7 @@ public class Asignatura {
      */
     public double notaAlumno(int indice){
         double nota = 0;
-        if(indice < this.listaNotas.length-1){
+        if(indice < this.listaNotas.length){
             nota = this.listaNotas[indice];
         }
         else{

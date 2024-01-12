@@ -55,7 +55,7 @@ public class Principal {
                     break;
             }
 
-        } while (opc < 1 || opc > 5);
+        } while (opc < 1 || opc > 2);
         return opc;
     }
 
@@ -108,10 +108,10 @@ public class Principal {
         //Analizamos el grupo
         matematicas.analizaGrupo();
 
-        //Creamos objeto
-        Grupo dam = new Grupo("dam", 5, 5);
+        Grupo dam = new Grupo("dam", 3, 3);
         dam.leerALumnos();
         dam.leerAsignaturas();
-        dam.mostrarMedias();
+        double media = dam.dameAlumnoMedia(1);
+        System.out.println(media);
     }
 }
