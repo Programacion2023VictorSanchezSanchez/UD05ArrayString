@@ -177,5 +177,36 @@ public class Grupo {
         return suspenso;
     }
 
+    /**
+     * Comprobamos cual es el alumno con mejor media
+     * @return el nombre del alumno con mejor media
+     */
+    public String dameMejorAlumnoMedia(){
+        double media;
+        double mediaMayor = 0;
+        String alumno = "";
+        for(int i = 0 ; i < this.alumnos.length ; i++){
+            media = dameAlumnoMedia(i);
+            if(media > mediaMayor){
+                mediaMayor = media;
+                alumno = this.alumnos[i];
+            }
+        }
+        return alumno;
+    }
+
+    /**
+     * Comprobamos de cada alumno las asignaturas que tienen suspendidas y mostramos si debería de repetir o no
+     */
+    public void muestraRepetidores(){
+        int suspensos;
+        for(int i = 0 ; i < this.alumnos.length ; i++){
+            suspensos = dameAlumnoSuspensos(i);
+            if(suspensos > 2){
+                System.out.println(this.alumnos[i]);
+            }
+        }
+    }
+
 
 }
