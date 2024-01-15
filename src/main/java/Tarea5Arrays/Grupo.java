@@ -92,14 +92,13 @@ public class Grupo {
         double media;
         StringBuilder resultado = new StringBuilder();
 
-        String s = "";
         for(int i = 0 ; i < this.asignaturas.length ; i++){
             asignatura = this.asignaturas[i].getNombreAsignatura();
             media = this.asignaturas[i].media();
-            resultado.append(" ").append(asignatura);
+            resultado.append(asignatura).append(" ").append(media);
 
         }
-        System.out.println(s);
+        System.out.println(resultado);
     }
 
     /**
@@ -193,6 +192,19 @@ public class Grupo {
             }
         }
         return alumno;
+    }
+
+    public void muestraMediaAlumnos(){
+        double media;
+        String alumno;
+        StringBuilder resultado = new StringBuilder();
+
+        for(int i = 0 ; i < this.alumnos.length ; i++){
+            alumno = this.alumnos[i];
+            media = dameAlumnoMedia(i);
+            resultado.append(alumno).append(" ").append(media);
+        }
+        System.out.println(resultado);
     }
 
     /**
