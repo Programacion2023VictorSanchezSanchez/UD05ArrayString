@@ -208,5 +208,49 @@ public class Grupo {
         }
     }
 
+    /**
+     * Como el metodo analizarGrupo pero analizamos todas las asignaturas
+     */
+    public void analizaAsignaturas(){
+        for (Asignatura asignatura : this.asignaturas) {
+            asignatura.analizaGrupo();
+        }
+    }
+
+    /**
+     * Analizamos el grupo con las medias generales de todo el curso de cada alumno
+     */
+    public void analizarCurso(){
+        int indiceAlto = 0;
+        int indiceMedio = 0;
+        int indiceBajo = 0;
+        float porcentajeAlto = 0;
+        float porcentajeMedio = 0;
+        float porcentajeBajo = 0;
+        for(int i = 0 ; i < this.alumnos.length ; i++){
+            if(dameAlumnoMedia(i) > 7){
+                indiceAlto++;
+            }else if(dameAlumnoMedia(i) >= 5 && dameAlumnoMedia(i) <= 7){
+                indiceMedio++;
+            }else{
+                indiceBajo++;
+            }
+        }
+        porcentajeAlto = (float) (indiceAlto * 100) / this.alumnos.length;
+        porcentajeMedio = (float) (indiceMedio * 100) / this.alumnos.length;
+        porcentajeBajo = (float) (indiceBajo * 100) / this.alumnos.length;
+
+        if(porcentajeAlto >= 66){
+            System.out.println("VAMOS FENOMENAL");
+        }else if(porcentajeMedio >= 66){
+            System.out.println("REPASAR EJERCICIOS CON DIFICULTAD");
+        }else if(porcentajeBajo >= 66){
+            System.out.println("VAMOS MAL... REPETIR TEMARIO");
+        }else{
+            System.out.println("HACER SUBGRUPOS CON TAREAS DIFERENTE DIFICULTAD");
+        }
+
+    }
+
 
 }
