@@ -85,20 +85,54 @@ public class Grupo {
     }
 
     /**
-     * Mostramos la media de las notas de cada asignatura
+     * Sobrecargamos el metodo toString
+     * @return devolvemos el nombre del grupo con las asignaturas, alumnos y sus notas en dichas asignaturas
      */
-    public void mostrarMedias(){
-        String asignatura;
-        double media;
+    public String toString() {
         StringBuilder resultado = new StringBuilder();
 
-        for(int i = 0 ; i < this.asignaturas.length ; i++){
-            asignatura = this.asignaturas[i].getNombreAsignatura();
-            media = this.asignaturas[i].media();
-            resultado.append(asignatura).append(" ").append(media);
+        resultado.append(String.format("%-30s", "Grupo: " + this.nombreGrupo));
 
+
+        for(int i = 0; i < this.asignaturas.length; i++) {
+            resultado.append(String.format("%-15s", this.asignaturas[i].getNombreAsignatura()));
         }
-        System.out.println(resultado);
+
+        resultado.append("\n");
+
+        for(int i = 0; i < this.alumnos.length; i++) {
+            String alumno = this.alumnos[i];
+            resultado.append(String.format("%-30.25s", alumno));
+
+            for(int j = 0; j < this.asignaturas.length; j++) {
+                double nota = this.asignaturas[j].notaAlumno(i);
+                resultado.append(String.format("%-15.2f", nota));
+            }
+
+            resultado.append("\n");
+        }
+
+        return resultado.toString();
+    }
+
+    /**
+     * Mostramos la media de las notas de cada asignatura
+     */
+    public String mostrarMedias(){
+        StringBuilder resultado = new StringBuilder();
+
+        for(int i = 0; i < this.asignaturas.length; i++) {
+            resultado.append(String.format("%-15s", this.asignaturas[i].getNombreAsignatura()));
+        }
+
+        resultado.append("\n");
+
+        for(int i = 0; i < this.asignaturas.length; i++) {
+            resultado.append(String.format("%-15.2f", this.asignaturas[i].media()));
+        }
+
+        resultado.append("\n");
+        return resultado.toString();
     }
 
     /**
@@ -194,17 +228,21 @@ public class Grupo {
         return alumno;
     }
 
-    public void muestraMediaAlumnos(){
-        double media;
-        String alumno;
+    /**
+     * Mostramos la media de los alumnos de todo el grupo
+     */
+    public void muestraMediaAlumnos() {
         StringBuilder resultado = new StringBuilder();
+        double media;
+        resultado.append("Media de los alumnos del grupo: " + this.nombreGrupo);
+        resultado.append("\n");
 
-        for(int i = 0 ; i < this.alumnos.length ; i++){
-            alumno = this.alumnos[i];
+        for (int i = 0; i < this.alumnos.length; i++) {
+            resultado.append(String.format("%-30.25s", this.alumnos[i]));
             media = dameAlumnoMedia(i);
-            resultado.append(alumno).append(" ").append(media);
+            resultado.append(String.format("%-15.2f", media));
+            resultado.append("\n");
         }
-        System.out.println(resultado);
     }
 
     /**

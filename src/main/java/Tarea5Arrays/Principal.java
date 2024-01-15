@@ -109,11 +109,5 @@ public class Principal {
         matematicas.analizaGrupo();
 
 
-        // Pruebas momentaneas
-        Grupo dam = new Grupo("dam", 3, 3);
-        dam.leerALumnos();
-        dam.leerAsignaturas();
-        double media = dam.dameAlumnoMedia(1);
-        System.out.println(media);
     }
 }
