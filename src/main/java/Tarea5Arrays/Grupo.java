@@ -147,6 +147,11 @@ public class Grupo {
         return media;
     }
 
+    /**
+     * Calculamos la media de todas las notas de un alumno
+     * @param indice el alumno que queremos hacer la media
+     * @return la media de sus notas
+     */
     public double dameAlumnoMedia(int indice){
         double media;
         double sum = 0;
@@ -155,6 +160,21 @@ public class Grupo {
         }
         media = sum / this.asignaturas.length;
         return media;
+    }
+
+    /**
+     * Devolvemos cuantos suspensos tiene un alumno
+     * @param indice el alumno del cual vamos a comprobar las notas
+     * @return los suspensos que tiene
+     */
+    public int dameAlumnoSuspensos(int indice){
+        int suspenso = 0;
+        for(Asignatura asignatura : this.asignaturas){
+            if(asignatura.notaAlumno(indice) < 5){
+                suspenso++;
+            }
+        }
+        return suspenso;
     }
 
 

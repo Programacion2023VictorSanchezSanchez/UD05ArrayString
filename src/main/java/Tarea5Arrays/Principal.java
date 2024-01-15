@@ -108,6 +108,8 @@ public class Principal {
         //Analizamos el grupo
         matematicas.analizaGrupo();
 
+
+        // Pruebas momentaneas
         Grupo dam = new Grupo("dam", 3, 3);
         dam.leerALumnos();
         dam.leerAsignaturas();
