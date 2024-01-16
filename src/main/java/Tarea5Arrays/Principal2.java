@@ -4,48 +4,77 @@ import java.util.Scanner;
 
 public class Principal2 {
     public static void main (String[] args){
-    Principal principal = new Principal();
+    Principal2 principal2 = new Principal2();
 
     int opc;
 
     //Leemos la opción
-    opc=principal.menu();
+    opc=principal2.menu();
 
+
+    Scanner sc = new Scanner(System.in);
+
+    //Pedimos la informacion del grupo al usuario
+    System.out.println("Introduce el nombre del grupo: ");
+    String grupo = sc.next();
+
+    System.out.println("Introduce el total de alumnos del grupo: ");
+    int totalAlumnos = sc.nextInt();
+
+    System.out.println("Introduce el total de asignaturas del grupo: ");
+    int totalAsignaturas = sc.nextInt();
+
+
+    //Objeto con el que vamos a hacer las pruebas
+    Grupo dam = new Grupo(grupo, totalAlumnos, totalAsignaturas);
 
     /**
      * Llamamos con un switch al metodo necesario para la opcion introducida por el usuario
      * @return opcion seleccionada por el usuario
      */
-    //Salimos cuando el usuario pulsa la opcion "2-Salir"
+    //Salimos cuando el usuario pulsa la opcion "13-Salir"
     while (opc != 13){
+
         switch(opc) {
             case 1: //Leer alumnos
+                principal2.testLeerAlumno(dam);
                 break;
             case 2: //Leer notas asignatura
+                principal2.testAsignaturaYNotas(dam);
                 break;
             case 3: //Mostrar grupo y notas
+                principal2.testGrupoYNotas(dam);
                 break;
             case 4: //Ver asignaturas
+                principal2.testMostrarAsignaturas(dam);
                 break;
             case 5: //Ver media asignaturas
+                principal2.testMediaAsignaturas(dam);
                 break;
             case 6: //Ver asignatura menor mínimo
+                principal2.testAsignaturaMenor(dam);
                 break;
             case 7: //Ver asignatura mayor máximo
+                principal2.testAsignaturaMayor(dam);
                 break;
             case 8: //Mostrar el alumno con mejor media
+                principal2.testMejorAlumno(dam);
                 break;
             case 9: //Muestra media de los alumnos
+                principal2.testMediaAlumno(dam);
                 break;
             case 10: //Muestra repetidores
+                principal2.testRepetidores(dam);
                 break;
             case 11: //Analiza asignaturas
+                principal2.testAnalizaAsignaturas(dam);
                 break;
             case 12: //Analiza curso
+                principal2.testAnalizaCurso(dam);
                 break;
 
         }
-        opc=principal.menu();
+        opc=principal2.menu();
     }
     System.out.println("Saliendo...");
 }
@@ -121,5 +150,63 @@ public class Principal2 {
 
         } while (opc < 1 || opc > 13);
         return opc;
+    }
+
+
+    /**
+     * Todos estos metodos son para llamar a los metodos de la clase grupo y asi probarlos
+     * @param grupo el objeto de grupo que vamos a usar en todos estos metodos
+     */
+    private void testLeerAlumno(Grupo grupo){
+        grupo.leerALumnos();
+    }
+
+    private void testAsignaturaYNotas(Grupo grupo){
+        grupo.leerAsignaturas();
+    }
+
+    private void testGrupoYNotas(Grupo grupo){
+        System.out.println(grupo);
+    }
+
+    private void testMostrarAsignaturas(Grupo grupo){
+        grupo.mostrarAsignaturas();
+    }
+
+    private void testMediaAsignaturas(Grupo grupo){
+        String media = grupo.mostrarMedias();
+        System.out.println(media);
+    }
+
+    private void testAsignaturaMenor(Grupo grupo){
+        String menor = grupo.dameAsignaturaMinima();
+        System.out.println(menor);
+    }
+
+    private void testAsignaturaMayor(Grupo grupo){
+        String mayor = grupo.dameAsignaturaMaxima();
+        System.out.println(mayor);
+    }
+
+    private void testMejorAlumno(Grupo grupo){
+        String mejor = grupo.dameMejorAlumnoMedia();
+        System.out.println(mejor);
+    }
+
+    private void testMediaAlumno(Grupo grupo){
+        String media = grupo.muestraMediaAlumnos();
+        System.out.println(media);
+    }
+
+    private void testRepetidores(Grupo grupo){
+        grupo.muestraRepetidores();
+    }
+
+    private void testAnalizaAsignaturas(Grupo grupo){
+        grupo.analizaAsignaturas();
+    }
+
+    private void testAnalizaCurso(Grupo grupo){
+        grupo.analizarCurso();
     }
 }

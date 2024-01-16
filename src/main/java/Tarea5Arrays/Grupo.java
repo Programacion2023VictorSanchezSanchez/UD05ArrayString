@@ -231,7 +231,7 @@ public class Grupo {
     /**
      * Mostramos la media de los alumnos de todo el grupo
      */
-    public void muestraMediaAlumnos() {
+    public String muestraMediaAlumnos() {
         StringBuilder resultado = new StringBuilder();
         double media;
         resultado.append("Media de los alumnos del grupo: " + this.nombreGrupo);
@@ -243,6 +243,7 @@ public class Grupo {
             resultado.append(String.format("%-15.2f", media));
             resultado.append("\n");
         }
+        return resultado.toString();
     }
 
     /**
