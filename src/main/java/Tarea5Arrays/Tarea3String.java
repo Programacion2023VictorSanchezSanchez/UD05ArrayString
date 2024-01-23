@@ -153,6 +153,55 @@ public class Tarea3String {
         return esPalindromo;
     }
 
+    /**
+     * Metodo para cifrar con desplazamiento +3
+     * @param aCifrar texto a cifrar
+     * @return texto cifrado
+     */
+    public String cifrar(String aCifrar) {
+        StringBuilder resultado = new StringBuilder();
+
+        for (int i = 0; i < aCifrar.length(); i++) {
+            char caracter = aCifrar.charAt(i);
+
+            // Verifica si el caracter es una letra
+            if (Character.isLetter(caracter)) {
+                char cifrado = (char) ((caracter - 'A' + 3) % 26 + 'A');
+                resultado.append(cifrado);
+            } else {
+                // Si no es una letra, simplemente añade el caracter sin cifrar
+                resultado.append(caracter);
+            }
+        }
+
+        return resultado.toString();
+    }
+
+    /**
+     * Metodo para descifrar con desplazamiento +3
+     * @param aDescifrar texto a descifrar
+     * @return texto descifrado
+     */
+    public static String desCifrar(String aDescifrar) {
+        StringBuilder resultado = new StringBuilder();
+
+        for (int i = 0; i < aDescifrar.length(); i++) {
+            char caracter = aDescifrar.charAt(i);
+
+            // Verifica si el caracter es una letra
+            if (Character.isLetter(caracter)) {
+                char descifrado = (char) ((caracter - 'A' - 3 + 26) % 26 + 'A');
+                resultado.append(descifrado);
+            } else {
+                // Si no es una letra, simplemente añade el caracter sin descifrar
+                resultado.append(caracter);
+            }
+        }
+
+        return resultado.toString();
+    }
+
+
 
 
 }
