@@ -149,3 +149,28 @@ e: for (int i=0;i<array.length;i++){//total filas
 int [] [] matriz = new int[5][10];
 
 ### Ejercicio 5
+for (int i=0;i<array.length;i++){//total filas
+
+    for(int j=0;j<array[0].length;j++){//total columnas
+    
+        array[i][j] = array[i][j] * 2;
+
+
+### Ejercicio 6
+for (int i = 0 ; i < pruebaArray.length ; i++){
+
+  if(pruebaArray[i] == null){
+
+    System.out.println("Fila nula");
+
+}else{
+  
+  for(int num : pruebaArray[i]){
+
+    System.out.print(num+" ");
+
+    }
+
+    System.out.println("");
+    
+}
