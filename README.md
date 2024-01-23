@@ -89,7 +89,7 @@ dataB : 45, 23, 2, 45, 4, 12
 ### Ejercicio 1
 a: gradeTable[5][3] = 0;
 
-b:int[][] gradeTable = { {99, 42, 74, 83, 100},
+b: int[][] gradeTable = { {99, 42, 74, 83, 100},
 
                          {90, 91, 72, 88, 95},
                          
@@ -125,4 +125,27 @@ b: 3, porque da la longitud de las filas que contiene.
 
 c: Fila 1: 3, Fila 2: 2, Fila 3: 5. Podemos averiguar la longitud de las filas(o numero de columnas) con miArray[fila].lenght
 
-d: 
+d: int [] [] pruebaArray = {{1, 2, 3},
+
+                            {4, 5, 6, 7, 8, 9},
+
+                            {2, 3, 4}};
+
+  int temp [] = {5, 6, 7, 8, 8, 2};
+
+  int i = 0;
+
+  pruebaArray[i++] = temp;
+
+  temp[3] = 9999;
+
+e: for (int i=0;i<array.length;i++){//total filas
+
+    for(int j=0;j<array[0].length;j++){//total columnas
+    
+        System.out.println(array[i][j]);
+
+### Ejercicio 4
+int [] [] matriz = new int[5][10];
+
+### Ejercicio 5
