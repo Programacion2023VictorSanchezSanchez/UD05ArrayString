@@ -84,3 +84,6 @@ dam[2] = m;
 
 ### Ejercicio 9
 dataB : 45, 23, 2, 45, 4, 12
+
+## Tarea 4 Matrices
+### Ejercicio 1
