@@ -182,7 +182,7 @@ public class Tarea3String {
      * @param aDescifrar texto a descifrar
      * @return texto descifrado
      */
-    public static String desCifrar(String aDescifrar) {
+    public String desCifrar(String aDescifrar) {
         StringBuilder resultado = new StringBuilder();
 
         for (int i = 0; i < aDescifrar.length(); i++) {

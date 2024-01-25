@@ -4,61 +4,86 @@ import java.util.Scanner;
 
 public class Principal3 {
     public static void main (String[] args){
-        Principal2 principal2 = new Principal2();
+        Scanner sc = new Scanner(System.in);
+        Principal3 principal3 = new Principal3();
+        Tarea3String test = new Tarea3String();
 
         int opc;
 
         //Leemos la opción
-        opc=principal2.menu();
+        opc=principal3.menu();
 
 
         /**
          * Llamamos con un switch al metodo necesario para la opcion introducida por el usuario
          * @return opcion seleccionada por el usuario
          */
-        //Salimos cuando el usuario pulsa la opcion "13-Salir"
-        while (opc != 13){
-
+        //Salimos cuando el usuario pulsa la opcion "10-Salir"
+        while (opc != 10){
+            String input;
+            String input2;
             switch(opc) {
-                case 1: //Leer alumnos
-
+                case 1: //esCorrectoNif
+                    System.out.println("Introduce un nif: ");
+                    input = sc.next();
+                    boolean esCorrecto = test.esCorrectoNIF(input);
+                    System.out.println(esCorrecto);
                     break;
-                case 2: //Leer notas asignatura
-
+                case 2: //quitaVocales
+                    System.out.println("Introduzca para quitar vocales: ");
+                    input = sc.next();
+                    String sinVocales = test.quitaVocales(input);
+                    System.out.println(sinVocales);
                     break;
-                case 3: //Mostrar grupo y notas
-
+                case 3: //quitaEspacios
+                    System.out.println("Introduzca para quitar espacios: ");
+                    input = sc.next();
+                    String sinEspacios = test.quitaEspaciosSobrantes(input);
+                    System.out.println(sinEspacios);
                     break;
-                case 4: //Ver asignaturas
-
+                case 4: //invertir
+                    System.out.println("Introduzca para quitar invertir: ");
+                    input = sc.next();
+                    String invertido = test.invertir(input);
+                    System.out.println(invertido);
                     break;
-                case 5: //Ver media asignaturas
-
+                case 5: //repeticiones
+                    System.out.println("Introduzca una frase: ");
+                    input = sc.next();
+                    System.out.println("Introduzca la palabra a buscar que se repita: ");
+                    input2 = sc.next();
+                    int repeticiones = test.repeticiones(input, input2);
+                    System.out.println(repeticiones);
                     break;
-                case 6: //Ver asignatura menor mínimo
-
+                case 6: //esPalindromo
+                    System.out.println("Introduzca la palabra a comprobar ");
+                    input = sc.next();
+                    boolean esPalindromo = test.esPalindromo(input);
+                    System.out.println(esPalindromo);
                     break;
-                case 7: //Ver asignatura mayor máximo
-
+                case 7: //cifrar
+                    System.out.println("Introduzca la palabra a cifrar ");
+                    input = sc.next();
+                    String cifrado = test.cifrar(input);
+                    System.out.println(cifrado);
                     break;
-                case 8: //Mostrar el alumno con mejor media
-
+                case 8: //descifrar
+                    System.out.println("Introduzca la palabra a descifrar ");
+                    input = sc.next();
+                    String descifrado = test.desCifrar(input);
+                    System.out.println(descifrado);
                     break;
-                case 9: //Muestra media de los alumnos
-
-                    break;
-                case 10: //Muestra repetidores
-
-                    break;
-                case 11: //Analiza asignaturas
-
-                    break;
-                case 12: //Analiza curso
-
+                case 9: //ahorcado
+                    System.out.println("Introduce la palabra a adivinar: ");
+                    input = sc.next();
+                    System.out.println("Introduce los intentos: ");
+                    int intentos = sc.nextInt();
+                    JuegoAhorcado testJuego = new JuegoAhorcado(input,intentos);
+                    testJuego.iniciarJuego();
                     break;
 
             }
-            opc=principal2.menu();
+            opc=principal3.menu();
         }
         System.out.println("Saliendo...");
     }
@@ -71,68 +96,58 @@ public class Principal3 {
         Scanner sc = new Scanner(System.in);
         int opc;
         do{
-            System.out.println("1-Leer alumnos");
-            System.out.println("2-Leer notas asignatura");
-            System.out.println("3-Mostrar grupo y notas");
-            System.out.println("4-Ver asignaturas");
-            System.out.println("5-Ver media asignaturas");
-            System.out.println("6-Ver asignatura menor mínimo");
-            System.out.println("7-Ver asignatura mayor máximo");
-            System.out.println("8-Mostrar el alumno con mejor media");
-            System.out.println("9-Muestra media de los alumnos");
-            System.out.println("10-Muestra repetidores");
-            System.out.println("11-Analiza asignaturas");
-            System.out.println("12-Analiza curso");
-            System.out.println("13-Salir");
+            System.out.println("1-esCorrectoNif");
+            System.out.println("2-QuitaVocales");
+            System.out.println("3-QuitaEspacios");
+            System.out.println("4-Invertir");
+            System.out.println("5-Repeticiones");
+            System.out.println("6-esPalindromo");
+            System.out.println("7-Cifrar");
+            System.out.println("8-Descifrar");
+            System.out.println("9-Ahorcado");
+            System.out.println("10-Salir");
 
-            System.out.println("Elije una opción: (1-13) ");
+
+            System.out.println("Elije una opción: (1-10) ");
             opc = sc.nextInt();
             switch(opc){
                 case 1:
-                    System.out.println("Has elegido la opción 1: Leer alumnos");
+                    System.out.println("Has elegido la opción 1: esCorrectoNif");
                     break;
                 case 2:
-                    System.out.println("Has elegido la opción 2: Leer notas asignatura");
+                    System.out.println("Has elegido la opción 2: QuitaVocales");
                     break;
                 case 3:
-                    System.out.println("Has elegido la opción 3: Mostrar grupo y notas");
+                    System.out.println("Has elegido la opción 3: QuitaEspacios");
                     break;
                 case 4:
-                    System.out.println("Has elegido la opción 4: Ver asignaturas");
+                    System.out.println("Has elegido la opción 4: Invertir");
                     break;
                 case 5:
-                    System.out.println("Has elegido la opción 5: Ver media asignaturas");
+                    System.out.println("Has elegido la opción 5: Repeticiones");
                     break;
                 case 6:
-                    System.out.println("Has elegido la opción 6: Ver asignatura menor");
+                    System.out.println("Has elegido la opción 6: esPalindromo");
                     break;
                 case 7:
-                    System.out.println("Has elegido la opción 7: Ver asignatura mayor");
+                    System.out.println("Has elegido la opción 7: Cifrar");
                     break;
                 case 8:
-                    System.out.println("Has elegido la opción 8: Mostrar alumno con mejor media");
+                    System.out.println("Has elegido la opción 8: Descifrar");
                     break;
                 case 9:
-                    System.out.println("Has elegido la opción 9: Muestra media de los alumnos");
+                    System.out.println("Has elegido la opción 9: Ahorcado");
                     break;
                 case 10:
-                    System.out.println("Has elegido la opción 10: Muestra repetidores");
-                    break;
-                case 11:
-                    System.out.println("Has elegido la opción 11: Analiza asignaturas");
-                    break;
-                case 12:
-                    System.out.println("Has elegido la opción 12: Analiza curso");
-                    break;
-                case 13:
-                    System.out.println("Has elegido la opción 13: Salir");
+                    System.out.println("Has elegido la opción 10: Salir");
                     break;
                 default:
                     System.out.println("Opción no válida");
                     break;
             }
 
-        } while (opc < 1 || opc > 13);
+        } while (opc < 1 || opc > 10);
         return opc;
     }
+
 }
